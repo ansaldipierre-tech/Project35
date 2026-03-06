@@ -33,6 +33,7 @@
         <h1 id="siteTitle">L'année du Love</h1>
         <p id="siteEdition" class="edition">Édition spéciale 2026</p>
         <p id="siteIntro" class="intro"></p>
+        <p id="dailyPhrase" class="daily-phrase"></p>
 
         <div class="hero-meta">
           <p id="progressText" class="progress">0/12 ouverts</p>
@@ -60,66 +61,6 @@
           <p class="section-sub">Des petits coupons utilisables quand tu veux ✨</p>
           <div id="momentsGrid" class="moments-grid"></div>
         </section>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Cormorant+Garamond:wght@500;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <div class="paper-texture"></div>
-    <div class="vignette"></div>
-
-    <dialog id="passcodeDialog" class="modal" open>
-      <form id="passcodeForm" class="modal-card" method="dialog">
-        <p class="hand-note">Pssst... ceci est une lettre secrète.</p>
-        <h2>Code doux requis 💌</h2>
-        <p>Entre le mot de passe, et je t’ouvre le carnet.</p>
-        <label for="passcodeInput">Mot de passe</label>
-        <input id="passcodeInput" type="password" required autocomplete="current-password" />
-        <p id="passcodeError" class="error-text"></p>
-        <button class="ribbon-btn" type="submit">Ouvrir la lettre</button>
-      </form>
-    </dialog>
-
-    <div id="app" class="app hidden">
-      <header class="hero">
-        <div class="hero-top">
-          <p class="hand-note" id="dailyLine"></p>
-          <div class="top-actions">
-            <button id="demoToggleBtn" class="wax-btn" type="button">Mode test</button>
-            <button id="themeToggleBtn" class="wax-btn" type="button">Soirée cocooning</button>
-            <button id="adminBtn" class="wax-btn" type="button">Atelier admin</button>
-          </div>
-        </div>
-
-        <h1 id="heroTitle">Pour toi, 35 ans ✨</h1>
-        <p class="subtitle">12 mois, 12 surprises, 1000 clins d’œil.</p>
-
-        <div id="demoPanel" class="demo-panel hidden">
-          <label for="demoDateInput">Date simulée</label>
-          <input id="demoDateInput" type="date" />
-          <button id="clearDemoDateBtn" type="button" class="text-btn">Revenir à aujourd’hui</button>
-        </div>
-      </header>
-
-      <section id="coverScreen" class="cover-screen">
-        <div class="cover-card">
-          <svg class="doodle" viewBox="0 0 180 80" aria-hidden="true">
-            <path d="M10 40 C 40 10, 70 70, 90 40 C 110 10, 140 70, 170 40" />
-            <circle cx="38" cy="24" r="3" />
-            <circle cx="146" cy="56" r="2.7" />
-          </svg>
-          <h2 id="coverTitle">Pour {SURNOM}, 35 ans ✨</h2>
-          <p id="introLetter"></p>
-          <button id="startExperienceBtn" class="ribbon-btn" type="button">Commencer</button>
-        </div>
-      </section>
-
-      <main id="experience" class="hidden">
-        <section class="timeline-wrap">
-          <p id="progressText">0/12 ouverts</p>
-          <div id="stamps" class="stamps"></div>
-        </section>
-
-        <section id="monthsGrid" class="months-grid" aria-live="polite"></section>
       </main>
     </div>
 
@@ -164,6 +105,7 @@
                 </select>
               </label>
               <label>Message réponse fausse <input name="wrongAnswerMessage" required /></label>
+              <label>Phrases du jour (une par ligne) <textarea name="dailyPhrases"></textarea></label>
               <label>Passcode app <input name="startPasscode" required /></label>
               <label>Passcode admin <input name="adminPasscode" required /></label>
               <button type="submit" class="btn btn-primary">Sauvegarder global</button>
@@ -181,6 +123,7 @@
               <label>Nom du mois <input name="monthNameFr" required /></label>
               <label>Énigme <textarea name="clueText" required></textarea></label>
               <label>Indice (optionnel) <textarea name="hintText"></textarea></label>
+              <label>Indices supplémentaires (une par ligne) <textarea name="extraHints"></textarea></label>
               <label>Réponses acceptées (une par ligne) <textarea name="acceptedAnswers" required></textarea></label>
               <label>Titre révélation <input name="revealTitle" required /></label>
               <label>Message révélation <textarea name="revealMessage" required></textarea></label>

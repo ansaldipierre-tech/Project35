@@ -50,13 +50,13 @@ Expérience statique premium/cozy chic : cartes mensuelles, box à ouvrir avec �
 
 - Écran passcode obligatoire avant affichage.
 - Option admin dès l’écran passcode.
-- Header one-page : titre configurable, édition, intro, progression `X/12`.
+- Header one-page : titre configurable, édition, intro, **phrase du jour** configurable, progression `X/12`.
 - Section **Les Mois** avec statuts :
   - Disponible
   - Surprise débloquée
   - Verrouillé + date + compteur `J-XXX`
 - CTA orange premium : **OUVRIR LA BOX**.
-- Modal énigme : réponse + indice après 2 erreurs + reveal + micro-confetti.
+- Modal énigme : réponse + indice après 2 erreurs + **indices supplémentaires** (si configurés) + reveal + micro-confetti.
 - Section **Les Bons Moments** avec état utilisé/non utilisé.
 - Persistance `localStorage` :
   - config,
@@ -113,3 +113,9 @@ Puis ouvrir `http://localhost:4173`.
 4. Branche : `main` (ou autre) + dossier `/ (root)`.
 5. Sauvegarder.
 6. Récupérer l’URL fournie par GitHub Pages.
+
+
+## Nouveautés
+
+- Chaque mois peut maintenant contenir `hintText` + `extraHints` (liste d’indices additionnels).
+- Une phrase quotidienne est affichée dans le header, choisie automatiquement parmi `meta.dailyPhrases` (configurable en admin, une ligne par phrase).

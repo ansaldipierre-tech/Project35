@@ -84,6 +84,13 @@ textarea { min-height: 90px; }
   margin-top: 1rem;
 }
 .hero .intro { color: var(--muted); margin-top: .6rem; line-height: 1.5; }
+
+.daily-phrase {
+  margin-top: .55rem;
+  color: #8b5f45;
+  font-weight: 600;
+  font-size: .95rem;
+}
 .edition { margin-top: .3rem; color: var(--muted); font-weight: 600; }
 .hero-meta {
   margin-top: 1rem;

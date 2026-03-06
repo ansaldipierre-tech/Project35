@@ -17,20 +17,25 @@ const defaultConfig = {
     siteIntro: "Douze box, douze moments pour sourire, se souvenir, et t’aimer encore plus fort.",
     monthScheme: "marchToFeb", // or janToDec
     wrongAnswerMessage: "Presque... mais ce n’est pas encore notre private joke 😘",
+    dailyPhrases: [
+      "Rappel du jour : tu es mon endroit préféré.",
+      "Mini mission : sourire en pensant à nous deux.",
+      "Phrase du jour : je t’aime un peu beaucoup passionnément.",
+    ],
   },
   months: [
-    { monthId: 1, monthNameFr: "Mars", clueText: "INSIDE_JOKE_01", hintText: "Indice 01", acceptedAnswers: ["INSIDE_JOKE_01", "inside joke 1"], revealTitle: "Box Mars", revealMessage: "Bravo 💝", giftDetails: "DÉTAIL_01", imageUrl: "" },
-    { monthId: 2, monthNameFr: "Avril", clueText: "INSIDE_JOKE_02", hintText: "Indice 02", acceptedAnswers: ["INSIDE_JOKE_02", "inside joke 2"], revealTitle: "Box Avril", revealMessage: "Bravo 💝", giftDetails: "DÉTAIL_02", imageUrl: "" },
-    { monthId: 3, monthNameFr: "Mai", clueText: "INSIDE_JOKE_03", hintText: "Indice 03", acceptedAnswers: ["INSIDE_JOKE_03", "inside joke 3"], revealTitle: "Box Mai", revealMessage: "Bravo 💝", giftDetails: "DÉTAIL_03", imageUrl: "" },
-    { monthId: 4, monthNameFr: "Juin", clueText: "INSIDE_JOKE_04", hintText: "Indice 04", acceptedAnswers: ["INSIDE_JOKE_04", "inside joke 4"], revealTitle: "Box Juin", revealMessage: "Bravo 💝", giftDetails: "DÉTAIL_04", imageUrl: "" },
-    { monthId: 5, monthNameFr: "Juillet", clueText: "INSIDE_JOKE_05", hintText: "Indice 05", acceptedAnswers: ["INSIDE_JOKE_05", "inside joke 5"], revealTitle: "Box Juillet", revealMessage: "Bravo 💝", giftDetails: "DÉTAIL_05", imageUrl: "" },
-    { monthId: 6, monthNameFr: "Août", clueText: "INSIDE_JOKE_06", hintText: "Indice 06", acceptedAnswers: ["INSIDE_JOKE_06", "inside joke 6"], revealTitle: "Box Août", revealMessage: "Bravo 💝", giftDetails: "DÉTAIL_06", imageUrl: "" },
-    { monthId: 7, monthNameFr: "Septembre", clueText: "INSIDE_JOKE_07", hintText: "Indice 07", acceptedAnswers: ["INSIDE_JOKE_07", "inside joke 7"], revealTitle: "Box Septembre", revealMessage: "Bravo 💝", giftDetails: "DÉTAIL_07", imageUrl: "" },
-    { monthId: 8, monthNameFr: "Octobre", clueText: "INSIDE_JOKE_08", hintText: "Indice 08", acceptedAnswers: ["INSIDE_JOKE_08", "inside joke 8"], revealTitle: "Box Octobre", revealMessage: "Bravo 💝", giftDetails: "DÉTAIL_08", imageUrl: "" },
-    { monthId: 9, monthNameFr: "Novembre", clueText: "INSIDE_JOKE_09", hintText: "Indice 09", acceptedAnswers: ["INSIDE_JOKE_09", "inside joke 9"], revealTitle: "Box Novembre", revealMessage: "Bravo 💝", giftDetails: "DÉTAIL_09", imageUrl: "" },
-    { monthId: 10, monthNameFr: "Décembre", clueText: "INSIDE_JOKE_10", hintText: "Indice 10", acceptedAnswers: ["INSIDE_JOKE_10", "inside joke 10"], revealTitle: "Box Décembre", revealMessage: "Bravo 💝", giftDetails: "DÉTAIL_10", imageUrl: "" },
-    { monthId: 11, monthNameFr: "Janvier", clueText: "INSIDE_JOKE_11", hintText: "Indice 11", acceptedAnswers: ["INSIDE_JOKE_11", "inside joke 11"], revealTitle: "Box Janvier", revealMessage: "Bravo 💝", giftDetails: "DÉTAIL_11", imageUrl: "" },
-    { monthId: 12, monthNameFr: "Février", clueText: "INSIDE_JOKE_12", hintText: "Indice 12", acceptedAnswers: ["INSIDE_JOKE_12", "inside joke 12"], revealTitle: "Box Février", revealMessage: "Bravo 💝", giftDetails: "DÉTAIL_12", imageUrl: "" },
+    { monthId: 1, monthNameFr: "Mars", clueText: "INSIDE_JOKE_01", hintText: "Indice 01", acceptedAnswers: ["INSIDE_JOKE_01", "inside joke 1"], revealTitle: "Box Mars", revealMessage: "Bravo 💝", giftDetails: "DÉTAIL_01", imageUrl: "", extraHints: [] },
+    { monthId: 2, monthNameFr: "Avril", clueText: "INSIDE_JOKE_02", hintText: "Indice 02", acceptedAnswers: ["INSIDE_JOKE_02", "inside joke 2"], revealTitle: "Box Avril", revealMessage: "Bravo 💝", giftDetails: "DÉTAIL_02", imageUrl: "", extraHints: [] },
+    { monthId: 3, monthNameFr: "Mai", clueText: "INSIDE_JOKE_03", hintText: "Indice 03", acceptedAnswers: ["INSIDE_JOKE_03", "inside joke 3"], revealTitle: "Box Mai", revealMessage: "Bravo 💝", giftDetails: "DÉTAIL_03", imageUrl: "", extraHints: [] },
+    { monthId: 4, monthNameFr: "Juin", clueText: "INSIDE_JOKE_04", hintText: "Indice 04", acceptedAnswers: ["INSIDE_JOKE_04", "inside joke 4"], revealTitle: "Box Juin", revealMessage: "Bravo 💝", giftDetails: "DÉTAIL_04", imageUrl: "", extraHints: [] },
+    { monthId: 5, monthNameFr: "Juillet", clueText: "INSIDE_JOKE_05", hintText: "Indice 05", acceptedAnswers: ["INSIDE_JOKE_05", "inside joke 5"], revealTitle: "Box Juillet", revealMessage: "Bravo 💝", giftDetails: "DÉTAIL_05", imageUrl: "", extraHints: [] },
+    { monthId: 6, monthNameFr: "Août", clueText: "INSIDE_JOKE_06", hintText: "Indice 06", acceptedAnswers: ["INSIDE_JOKE_06", "inside joke 6"], revealTitle: "Box Août", revealMessage: "Bravo 💝", giftDetails: "DÉTAIL_06", imageUrl: "", extraHints: [] },
+    { monthId: 7, monthNameFr: "Septembre", clueText: "INSIDE_JOKE_07", hintText: "Indice 07", acceptedAnswers: ["INSIDE_JOKE_07", "inside joke 7"], revealTitle: "Box Septembre", revealMessage: "Bravo 💝", giftDetails: "DÉTAIL_07", imageUrl: "", extraHints: [] },
+    { monthId: 8, monthNameFr: "Octobre", clueText: "INSIDE_JOKE_08", hintText: "Indice 08", acceptedAnswers: ["INSIDE_JOKE_08", "inside joke 8"], revealTitle: "Box Octobre", revealMessage: "Bravo 💝", giftDetails: "DÉTAIL_08", imageUrl: "", extraHints: [] },
+    { monthId: 9, monthNameFr: "Novembre", clueText: "INSIDE_JOKE_09", hintText: "Indice 09", acceptedAnswers: ["INSIDE_JOKE_09", "inside joke 9"], revealTitle: "Box Novembre", revealMessage: "Bravo 💝", giftDetails: "DÉTAIL_09", imageUrl: "", extraHints: [] },
+    { monthId: 10, monthNameFr: "Décembre", clueText: "INSIDE_JOKE_10", hintText: "Indice 10", acceptedAnswers: ["INSIDE_JOKE_10", "inside joke 10"], revealTitle: "Box Décembre", revealMessage: "Bravo 💝", giftDetails: "DÉTAIL_10", imageUrl: "", extraHints: [] },
+    { monthId: 11, monthNameFr: "Janvier", clueText: "INSIDE_JOKE_11", hintText: "Indice 11", acceptedAnswers: ["INSIDE_JOKE_11", "inside joke 11"], revealTitle: "Box Janvier", revealMessage: "Bravo 💝", giftDetails: "DÉTAIL_11", imageUrl: "", extraHints: [] },
+    { monthId: 12, monthNameFr: "Février", clueText: "INSIDE_JOKE_12", hintText: "Indice 12", acceptedAnswers: ["INSIDE_JOKE_12", "inside joke 12"], revealTitle: "Box Février", revealMessage: "Bravo 💝", giftDetails: "DÉTAIL_12", imageUrl: "", extraHints: [] },
   ],
   moments: [
     { id: "moment_01", title: "Bon pour un brunch en pyjama", description: "Valable un dimanche au choix." },
@@ -63,6 +68,7 @@ function mapEls() {
     siteTitle: document.getElementById("siteTitle"),
     siteEdition: document.getElementById("siteEdition"),
     siteIntro: document.getElementById("siteIntro"),
+    dailyPhrase: document.getElementById("dailyPhrase"),
     progressText: document.getElementById("progressText"),
     monthsGrid: document.getElementById("monthsGrid"),
     momentsGrid: document.getElementById("momentsGrid"),
@@ -188,7 +194,17 @@ function renderHeader() {
   el.siteTitle.textContent = state.config.meta.siteTitle;
   el.siteEdition.textContent = state.config.meta.siteEdition;
   el.siteIntro.textContent = state.config.meta.siteIntro;
+  el.dailyPhrase.textContent = phraseOfTheDay();
   el.progressText.textContent = `${state.openedMonths.length}/12 ouverts`;
+}
+
+function phraseOfTheDay() {
+  const list = Array.isArray(state.config.meta.dailyPhrases) && state.config.meta.dailyPhrases.length
+    ? state.config.meta.dailyPhrases
+    : ["Tu es ma plus belle habitude 💛"];
+  const d = currentLocalDate();
+  const key = Math.floor(d.getTime() / 86400000);
+  return list[key % list.length];
 }
 
 function renderMonths() {
@@ -269,6 +285,8 @@ function openMonthModal(month, status) {
   }
 
   const tries = state.triesByMonth[month.monthId] || 0;
+  const allHints = [month.hintText, ...(month.extraHints || [])].map((x) => String(x || "").trim()).filter(Boolean);
+  let revealedHints = 0;
   el.monthModalBody.innerHTML = `
     <h2>${month.monthNameFr}</h2>
     <p>${month.clueText}</p>
@@ -277,9 +295,9 @@ function openMonthModal(month, status) {
     <p id="answerError" class="error-text"></p>
     <div class="row">
       <button id="validateBtn" class="btn btn-primary" type="button">Valider</button>
-      <button id="hintBtn" class="btn btn-soft ${tries >= 2 && month.hintText ? "" : "hidden"}" type="button">Afficher l’indice</button>
+      <button id="hintBtn" class="btn btn-soft ${tries >= 2 && allHints.length ? "" : "hidden"}" type="button">Afficher un indice</button>
     </div>
-    <p id="hintText" class="ok-text"></p>
+    <div id="hintText" class="ok-text"></div>
   `;
 
   const answerInput = document.getElementById("answerInput");
@@ -303,7 +321,14 @@ function openMonthModal(month, status) {
   });
 
   hintBtn?.addEventListener("click", () => {
-    hintText.textContent = month.hintText || "Pas d’indice cette fois 😊";
+    if (!allHints.length) {
+      hintText.textContent = "Pas d’indice cette fois 😊";
+      return;
+    }
+    revealedHints = Math.min(revealedHints + 1, allHints.length);
+    hintText.innerHTML = allHints.slice(0, revealedHints).map((h, i) => `<div>Indice ${i + 1} : ${h}</div>`).join("");
+    hintBtn.textContent = revealedHints >= allHints.length ? "Tous les indices affichés" : "Afficher un indice supplémentaire";
+    if (revealedHints >= allHints.length) hintBtn.disabled = true;
   });
 
   el.monthModal.showModal();
@@ -409,14 +434,22 @@ function isAnswerAccepted(input, answers) {
 
 function loadConfig() {
   const fromStorage = loadJson(STORAGE.config, null);
-  if (!fromStorage) return structuredClone(defaultConfig);
+  if (!fromStorage) return upgradeConfig(structuredClone(defaultConfig));
   if (Array.isArray(fromStorage)) {
-    return {
+    return upgradeConfig({
       ...structuredClone(defaultConfig),
       months: fromStorage,
-    };
+    });
   }
-  return validateConfig(fromStorage) ? fromStorage : structuredClone(defaultConfig);
+  const cfg = validateConfig(fromStorage) ? fromStorage : structuredClone(defaultConfig);
+  return upgradeConfig(cfg);
+}
+
+function upgradeConfig(cfg) {
+  const out = structuredClone(cfg);
+  if (!Array.isArray(out.meta.dailyPhrases)) out.meta.dailyPhrases = [...defaultConfig.meta.dailyPhrases];
+  out.months = out.months.map((m, i) => ({ ...defaultConfig.months[i], ...m, extraHints: Array.isArray(m.extraHints) ? m.extraHints : [] }));
+  return out;
 }
 
 function validateConfig(cfg) {
@@ -448,6 +481,7 @@ function fillAdminForms() {
   el.adminMetaForm.siteIntro.value = state.config.meta.siteIntro;
   el.adminMetaForm.monthScheme.value = state.config.meta.monthScheme;
   el.adminMetaForm.wrongAnswerMessage.value = state.config.meta.wrongAnswerMessage;
+  el.adminMetaForm.dailyPhrases.value = (state.config.meta.dailyPhrases || []).join("\n");
   el.adminMetaForm.startPasscode.value = state.config.passcodes.start;
   el.adminMetaForm.adminPasscode.value = state.config.passcodes.admin;
 
@@ -465,6 +499,7 @@ function fillMonthForm(monthId) {
   el.adminMonthForm.monthNameFr.value = m.monthNameFr;
   el.adminMonthForm.clueText.value = m.clueText;
   el.adminMonthForm.hintText.value = m.hintText || "";
+  el.adminMonthForm.extraHints.value = (m.extraHints || []).join("\n");
   el.adminMonthForm.acceptedAnswers.value = (m.acceptedAnswers || []).join("\n");
   el.adminMonthForm.revealTitle.value = m.revealTitle;
   el.adminMonthForm.revealMessage.value = m.revealMessage;
@@ -480,6 +515,7 @@ function saveMetaForm(e) {
   state.config.meta.siteIntro = String(fd.get("siteIntro") || "").trim();
   state.config.meta.monthScheme = String(fd.get("monthScheme") || "marchToFeb");
   state.config.meta.wrongAnswerMessage = String(fd.get("wrongAnswerMessage") || "").trim();
+  state.config.meta.dailyPhrases = String(fd.get("dailyPhrases") || "").split("\n").map((x) => x.trim()).filter(Boolean);
   state.config.passcodes.start = String(fd.get("startPasscode") || "amour35").trim();
   state.config.passcodes.admin = String(fd.get("adminPasscode") || "amour35").trim();
   persistConfig();
@@ -497,6 +533,7 @@ function saveMonthForm(e) {
   month.monthNameFr = String(fd.get("monthNameFr") || "").trim();
   month.clueText = String(fd.get("clueText") || "").trim();
   month.hintText = String(fd.get("hintText") || "").trim();
+  month.extraHints = String(fd.get("extraHints") || "").split("\n").map((x) => x.trim()).filter(Boolean);
   month.acceptedAnswers = String(fd.get("acceptedAnswers") || "").split("\n").map((x) => x.trim()).filter(Boolean);
   month.revealTitle = String(fd.get("revealTitle") || "").trim();
   month.revealMessage = String(fd.get("revealMessage") || "").trim();
