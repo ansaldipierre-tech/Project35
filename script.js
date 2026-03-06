@@ -382,7 +382,7 @@ function openMonthModal(monthId, status) {
     <h2>${injectTokens(month.monthNameFr)}</h2>
     <p class="note-clue">${injectTokens(month.clueText)}</p>
     <label for="answerInput">Ta réponse secrète</label>
-    <input id="answerInput" class="notebook-input" type="text" placeholder="Écris ici, mon détective préféré..." />
+    <input id="answerInput" class="notebook-input" type="text" placeholder="Écris ici, ma détective préférée..." />
     <p id="answerError" class="error-text"></p>
     <div class="admin-toolbar">
       <button id="submitAnswerBtn" class="ribbon-btn" type="button">Valider</button>
