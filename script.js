@@ -8,23 +8,36 @@ const STORAGE_KEYS = {
   darkMode: "cadeaux35.darkMode",
 };
 
-const DEFAULT_PASSCODE = "amour35";
+const DEFAULT_PASSCODE = "bibdu13";
 const MONTH_NAMES = ["Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre", "Janvier", "Février"];
 
 const defaultConfig = {
   meta: {
-    wifeName: "Mon Amour",
-    nickname: "{SURNOM}",
+    wifeName: "Ma Bib",
+    nickname: "Ma louve",
     privateJoke1: "{PRIVATE_JOKE_1}",
     privateJoke2: "{PRIVATE_JOKE_2}",
     introLetter:
-      "Mon cœur,\n\nCette année, chaque 1er du mois t’offre un petit clin d’œil. Tu vas retrouver nos souvenirs, nos délires, et un soupçon de magie maison.\n\nAvec tout mon amour.",
+      "Mon tendre amour, \n\nCette année, l'anniversaire n'est qu'un seul jour, mais à travers lui, ce que l'on célèbre c'est une année entière joyeuse et riche qui nous attend. Pour t'accompagner toute l'année de tes 35 ans (techniquement ta 36em année mais bon restons jeunes), chaque 1er du mois t’offre un petit clin d’œil. Chaque cadeau ne sera en revanche débloqué que lorsque tu auras trouvé la réponse grâce à des indices, qui seront disponibles progressivement.\n\nEn espérant que la sélection te plaise",
     dailyLines: [
-      "Rappel du jour : t’es ma personne préférée.",
-      "Mission secrète : sourire en pensant à PRIVATE_JOKE_1.",
-      "Alerte romantique : câlin requis avant minuit.",
-      "Je t’aime plus que les frites croustillantes (et c’est énorme).",
-      "Note de service : embrasser la cheffe de mon cœur.",
+      "Rappel du jour : t’es ma préférée !!"
+      "Un sourire en pensant à Jentivilarus"
+      "Juste pour info, j'ai besoin d'un câlin"
+      "Je t’aime plus que les jeux de société (et c’est énorme)"
+      "Une journée sans rire est une journée perdue"
+      "Le plaisir que j'éprouve à tes côtés est sans limite"
+      "J'aime te regarder te doucher (c'est creep ou pas?)"
+      "Quid de chanter ensemble ?"
+      "La vie est belle"
+      "Ton sourire illumine ma vie"
+      "J'aime ton corps"
+      "Trop hâte d'un gros câlin"
+      "Qu'est ce qu'on se cuisine ce soir?"
+      "On s'embrasse les yeux fermés ou les yeux ouverts?"
+      "Tu me fais vibrer en permanence"
+      "J'aime dormir collé à toi"
+      "Alors la journée se passe bien?"
+      "Je suis heureux avec toi chaque jour"
     ],
   },
   months: MONTH_NAMES.map((monthNameFr, idx) => {
