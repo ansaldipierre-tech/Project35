@@ -6,6 +6,60 @@
     <title>12 Cadeaux – 35 ans</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="passcodeGate" class="gate-wrap">
+      <div class="gate-card">
+        <p class="kicker">Un message rien que pour toi 💌</p>
+        <h1>Mot de passe</h1>
+        <p class="gate-text">Entre notre code secret pour découvrir les box mensuelles.</p>
+        <form id="passcodeForm" class="stack">
+          <label for="passcodeInput">Code d’accès</label>
+          <input id="passcodeInput" type="password" required autocomplete="current-password" />
+          <p id="passcodeError" class="error-text"></p>
+          <div class="row">
+            <button type="submit" class="btn btn-primary">Entrer</button>
+            <button id="adminFromGateBtn" type="button" class="btn btn-soft">Admin</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div id="app" class="app hidden">
+      <header class="hero container">
+        <p class="kicker">Surprise mensuelle</p>
+        <h1 id="siteTitle">L'année du Love</h1>
+        <p id="siteEdition" class="edition">Édition spéciale 2026</p>
+        <p id="siteIntro" class="intro"></p>
+
+        <div class="hero-meta">
+          <p id="progressText" class="progress">0/12 ouverts</p>
+          <div class="hero-actions">
+            <button id="adminBtn" class="btn btn-soft" type="button">Mode admin</button>
+            <button id="demoToggleBtn" class="btn btn-soft" type="button">Mode test</button>
+          </div>
+        </div>
+
+        <div id="demoPanel" class="demo-panel hidden">
+          <label for="demoDateInput">Date simulée</label>
+          <input id="demoDateInput" type="date" />
+          <button id="resetDemoBtn" class="btn btn-soft" type="button">Revenir au réel</button>
+        </div>
+      </header>
+
+      <main class="container stack-lg">
+        <section>
+          <h2>Les Mois</h2>
+          <div id="monthsGrid" class="months-grid"></div>
+        </section>
+
+        <section>
+          <h2>Les Bons Moments</h2>
+          <p class="section-sub">Des petits coupons utilisables quand tu veux ✨</p>
+          <div id="momentsGrid" class="moments-grid"></div>
+        </section>
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Cormorant+Garamond:wght@500;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
   </head>
@@ -70,112 +124,87 @@
     </div>
 
     <dialog id="monthModal" class="modal">
-      <div class="modal-card letter-modal">
-        <button id="closeMonthModal" class="close-btn" aria-label="Fermer">×</button>
+      <div class="modal-card">
+        <button id="closeMonthModal" class="icon-btn" aria-label="Fermer">✕</button>
         <div id="monthModalBody"></div>
       </div>
     </dialog>
 
-    <dialog id="adminDialog" class="modal">
-      <div class="modal-card atelier">
-        <button id="closeAdminModal" class="close-btn" aria-label="Fermer">×</button>
-        <h2>Atelier des surprises</h2>
-        <p class="hand-note">Zone bricolage amoureux ✍️</p>
+    <dialog id="adminModal" class="modal">
+      <div class="modal-card admin-card">
+        <button id="closeAdminModal" class="icon-btn" aria-label="Fermer">✕</button>
+        <h2>Atelier admin</h2>
 
-        <form id="adminPassForm" class="stack-gap">
-          <label for="adminPassInput">Code admin</label>
+        <form id="adminAuthForm" class="stack">
+          <label for="adminPassInput">Mot de passe admin</label>
           <input id="adminPassInput" type="password" required />
-          <button class="ribbon-btn" type="submit">Entrer</button>
           <p id="adminPassError" class="error-text"></p>
+          <button type="submit" class="btn btn-primary">Déverrouiller</button>
         </form>
 
-        <section id="adminPanel" class="hidden">
-          <div class="admin-toolbar">
-            <button id="previewBtn" class="wax-btn" type="button">Aperçu comme elle</button>
-            <button id="exportConfigBtn" class="wax-btn" type="button">Exporter JSON</button>
-            <label for="importConfigInput" class="wax-btn file-label">Importer JSON</label>
-            <input id="importConfigInput" type="file" accept="application/json" />
+        <section id="adminPanel" class="hidden stack-lg">
+          <div class="row wrap">
+            <button id="exportBtn" type="button" class="btn btn-soft">Exporter JSON</button>
+            <label for="importInput" class="btn btn-soft fake-file">Importer JSON</label>
+            <input id="importInput" type="file" accept="application/json" />
+            <button id="resetOpenedBtn" type="button" class="btn btn-danger">Reset mois ouverts</button>
+            <button id="resetMomentsBtn" type="button" class="btn btn-danger">Reset bons utilisés</button>
           </div>
 
           <details open>
-            <summary>Personnalisation globale</summary>
-            <form id="adminMetaForm" class="stack-gap">
-              <label>Prénom
-                <input name="wifeName" required />
+            <summary>Paramètres globaux</summary>
+            <form id="adminMetaForm" class="stack">
+              <label>Titre du site <input name="siteTitle" required /></label>
+              <label>Édition <input name="siteEdition" required /></label>
+              <label>Introduction <textarea name="siteIntro" required></textarea></label>
+              <label>Schéma des mois
+                <select name="monthScheme">
+                  <option value="marchToFeb">Mars → Février</option>
+                  <option value="janToDec">Janvier → Décembre</option>
+                </select>
               </label>
-              <label>Surnom ({SURNOM})
-                <input name="nickname" required />
-              </label>
-              <label>Phrase signature 1 ({PRIVATE_JOKE_1})
-                <input name="privateJoke1" required />
-              </label>
-              <label>Phrase signature 2 ({PRIVATE_JOKE_2})
-                <input name="privateJoke2" required />
-              </label>
-              <label>Lettre d’intro
-                <textarea name="introLetter" required></textarea>
-              </label>
-              <label>Easter egg quotidien (une ligne par ligne)
-                <textarea name="dailyLines" required></textarea>
-              </label>
-              <label>Passcode app
-                <input name="passcode" required />
-              </label>
-              <label>Passcode admin
-                <input name="adminPasscode" required />
-              </label>
-              <button class="ribbon-btn" type="submit">Sauvegarder global</button>
-              <p id="adminMetaMsg" class="success-text"></p>
+              <label>Message réponse fausse <input name="wrongAnswerMessage" required /></label>
+              <label>Passcode app <input name="startPasscode" required /></label>
+              <label>Passcode admin <input name="adminPasscode" required /></label>
+              <button type="submit" class="btn btn-primary">Sauvegarder global</button>
+              <p id="adminMetaMsg" class="ok-text"></p>
             </form>
           </details>
 
           <details open>
-            <summary>Modifier un mois</summary>
-            <div class="stack-gap">
-              <label for="adminMonthSelect">Mois</label>
+            <summary>Mois (12)</summary>
+            <div class="stack">
+              <label for="adminMonthSelect">Choisir un mois</label>
               <select id="adminMonthSelect"></select>
             </div>
-            <form id="adminEditForm" class="stack-gap">
-              <label>Nom du mois
-                <input name="monthNameFr" required />
-              </label>
-              <label>Énigme
-                <textarea name="clueText" required></textarea>
-              </label>
-              <label>Petit indice
-                <textarea name="hintText"></textarea>
-              </label>
-              <label>Réponses acceptées (une par ligne)
-                <textarea name="acceptedAnswers" required></textarea>
-              </label>
-              <label>Titre révélation
-                <input name="revealTitle" required />
-              </label>
-              <label>Message révélation
-                <textarea name="revealMessage" required></textarea>
-              </label>
-              <label>Détails cadeau
-                <textarea name="giftDetails"></textarea>
-              </label>
-              <label>Instructions
-                <textarea name="instructions"></textarea>
-              </label>
-              <label>URL image
-                <input name="imageUrl" />
-              </label>
-              <button class="ribbon-btn" type="submit">Sauvegarder ce mois</button>
-              <p id="adminSaveMsg" class="success-text"></p>
+            <form id="adminMonthForm" class="stack">
+              <label>Nom du mois <input name="monthNameFr" required /></label>
+              <label>Énigme <textarea name="clueText" required></textarea></label>
+              <label>Indice (optionnel) <textarea name="hintText"></textarea></label>
+              <label>Réponses acceptées (une par ligne) <textarea name="acceptedAnswers" required></textarea></label>
+              <label>Titre révélation <input name="revealTitle" required /></label>
+              <label>Message révélation <textarea name="revealMessage" required></textarea></label>
+              <label>Détails cadeau <textarea name="giftDetails"></textarea></label>
+              <label>Image URL <input name="imageUrl" /></label>
+              <button type="submit" class="btn btn-primary">Sauvegarder ce mois</button>
+              <p id="adminMonthMsg" class="ok-text"></p>
             </form>
           </details>
 
-          <div class="admin-toolbar">
-            <button id="resetConfigBtn" class="danger-btn" type="button">Réinitialiser le contenu</button>
-            <button id="resetProgressBtn" class="danger-btn" type="button">Réinitialiser l’avancement</button>
-          </div>
+          <details open>
+            <summary>Bons Moments</summary>
+            <form id="adminMomentsForm" class="stack">
+              <label>Liste coupons (JSON)
+                <textarea name="momentsJson" required></textarea>
+              </label>
+              <button type="submit" class="btn btn-primary">Sauvegarder coupons</button>
+              <p id="adminMomentsMsg" class="ok-text"></p>
+            </form>
+          </details>
         </section>
       </div>
     </dialog>
 
-    <script src="script.js"></script>
+    <script src="app.js"></script>
   </body>
 </html>

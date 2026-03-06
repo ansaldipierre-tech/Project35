@@ -1,148 +1,115 @@
-# 12 Cadeaux – 35 ans 💝
+# 12 Cadeaux – 35 ans (version Box Cadeau)
 
-Une app statique romantique (HTML/CSS/JS) façon carnet d’amour : 12 mois, 12 énigmes, 12 révélations.
+Expérience statique premium/cozy chic : cartes mensuelles, box à ouvrir avec énigme, et section **Les Bons Moments** (coupons utilisables n’importe quand).
 
-## Ce que fait l’app
+## Palette & polices proposées
 
-- Débloque les mois de **Mars à Février** le **1er de chaque mois** (fuseau local du navigateur).
-- Statuts : verrouillé / disponible / ouvert.
-- Entrée protégée par passcode (rien n’est visible avant).
-- Écran couverture personnalisé : "Pour <Prénom>, 35 ans ✨" + lettre d’intro.
-- Enveloppes mensuelles avec énigme, validation, indice après 2 erreurs.
-- Révélation en style polaroid + confettis cœurs subtils.
-- Progression persistée (`localStorage`) pour relire les mois ouverts.
-- Mode admin (atelier) protégé + édition complète + export/import JSON.
-- Mode test de date pour simuler les mois.
-- Option thème "soirée cocooning".
+- **Palette**
+  - Fond crème rosé : `#FCF6F0`
+  - Surface carte : `#FFFDF9`
+  - Accent orange CTA : `#EA7D2D`
+  - Orange foncé hover : `#CF6518`
+  - Texte cacao : `#3D2E2A`
+  - Texte secondaire : `#7A625A`
+- **Typographies**
+  - Titres : `DM Serif Display`
+  - Texte : `Inter`
 
-## Passcodes
-
-Par défaut :
-
-- Passcode app : `amour35`
-- Passcode admin : `amour35`
-
-Ils sont sauvegardés dans `localStorage` :
-
-- `cadeaux35.passcode`
-- `cadeaux35.adminPasscode`
-
-Vous pouvez les modifier facilement depuis l’**atelier admin**.
-
----
-
-## Personnalisation rapide en 5 minutes
-
-1. Ouvrir l’app puis cliquer **Atelier admin**.
-2. Dans **Personnalisation globale** :
-   - `wifeName` (prénom affiché dans la dédicace),
-   - `nickname` (injecté via `{SURNOM}`),
-   - `privateJoke1`, `privateJoke2` (injectés via `{PRIVATE_JOKE_1}` / `{PRIVATE_JOKE_2}`),
-   - `introLetter` (petite lettre d’accueil),
-   - `dailyLines` (une phrase par ligne, rotation quotidienne).
-3. Changer les passcodes app/admin.
-4. Dans **Modifier un mois**, remplir les 12 entrées :
-   - `clueText`, `hintText`, `acceptedAnswers` (une ligne = une variante),
-   - `revealTitle`, `revealMessage`, `giftDetails`, `instructions`, `imageUrl`.
-5. Cliquer **Exporter JSON** pour garder une sauvegarde.
-
-### Exemple de variantes `acceptedAnswers`
-
-Pour une réponse comme “notre banc secret”, vous pouvez mettre :
-
-- `Notre banc secret`
-- `notre banc secret`
-- `le banc secret`
-- `banc-secret`
-
-Le moteur ignore casse, accents, ponctuation, espaces multiples.
-
----
-
-## Schéma de déblocage (Mars → Février)
-
-Anniversaire : **2 mars**.
-
-Le cycle s’ouvre ainsi :
-
-1. Mars → 1er mars
-2. Avril → 1er avril
-3. Mai → 1er mai
-4. Juin → 1er juin
-5. Juillet → 1er juillet
-6. Août → 1er août
-7. Septembre → 1er septembre
-8. Octobre → 1er octobre
-9. Novembre → 1er novembre
-10. Décembre → 1er décembre
-11. Janvier → 1er janvier (année suivante)
-12. Février → 1er février (année suivante)
-
-Calcul de l’année de cycle :
-
-- si `today >= 1er mars` de l’année courante → cycle courant,
-- sinon → cycle commencé l’année précédente.
-
-Toutes les comparaisons utilisent la date locale du navigateur.
-
----
-
-## Structure JSON (config)
+## Structure JSON (mois + bons moments)
 
 ```json
 {
+  "passcodes": { "start": "amour35", "admin": "amour35" },
   "meta": {
-    "wifeName": "Mon Amour",
-    "nickname": "{SURNOM}",
-    "privateJoke1": "{PRIVATE_JOKE_1}",
-    "privateJoke2": "{PRIVATE_JOKE_2}",
-    "introLetter": "...",
-    "dailyLines": ["..."]
+    "siteTitle": "L'année du Love",
+    "siteEdition": "Édition spéciale 2026",
+    "siteIntro": "...",
+    "monthScheme": "marchToFeb",
+    "wrongAnswerMessage": "Presque..."
   },
   "months": [
     {
       "monthId": 1,
       "monthNameFr": "Mars",
-      "clueText": "Énigme... INSIDE_JOKE_01",
-      "hintText": "Petit indice...",
-      "acceptedAnswers": ["INSIDE_JOKE_01", "inside joke 1", "private joke 1"],
-      "revealTitle": "Cadeau 1 – Mars",
-      "revealMessage": "Bravo {SURNOM} 💘",
-      "giftDetails": "DÉTAIL_CADEAU_01",
-      "instructions": "INSTRUCTION_01",
+      "clueText": "INSIDE_JOKE_01",
+      "hintText": "Indice 01",
+      "acceptedAnswers": ["INSIDE_JOKE_01", "inside joke 1"],
+      "revealTitle": "Box Mars",
+      "revealMessage": "Bravo 💝",
+      "giftDetails": "DÉTAIL_01",
       "imageUrl": ""
     }
+  ],
+  "moments": [
+    { "id": "moment_01", "title": "Bon pour un brunch en pyjama", "description": "..." }
   ]
 }
 ```
 
----
+## Fonctionnalités
 
-## Lancer localement
+- Écran passcode obligatoire avant affichage.
+- Option admin dès l’écran passcode.
+- Header one-page : titre configurable, édition, intro, progression `X/12`.
+- Section **Les Mois** avec statuts :
+  - Disponible
+  - Surprise débloquée
+  - Verrouillé + date + compteur `J-XXX`
+- CTA orange premium : **OUVRIR LA BOX**.
+- Modal énigme : réponse + indice après 2 erreurs + reveal + micro-confetti.
+- Section **Les Bons Moments** avec état utilisé/non utilisé.
+- Persistance `localStorage` :
+  - config,
+  - mois ouverts,
+  - coupons utilisés,
+  - mode test + date simulée.
+- Mode test : simulation de date.
+- Admin : édition globale, mois, coupons JSON, import/export JSON, resets.
 
-Aucun build.
+## Comment changer les mots de passe
 
-- Ouvrir `index.html` directement, ou
-- servir le dossier : `python -m http.server 4173`
+Depuis **Mode admin → Paramètres globaux** :
 
----
+- `Passcode app`
+- `Passcode admin`
 
-## Déploiement gratuit
+Puis sauvegarder. Les nouveaux passcodes sont stockés dans la config locale (`localStorage`).
 
-### A) GitHub Pages
+## Déblocage des mois
 
-1. Créez un repo GitHub et poussez les fichiers.
-2. GitHub → **Settings** → **Pages**.
+- Schéma par défaut : **Mars → Février**.
+- Déblocage le **1er** de chaque mois.
+- Basé sur le fuseau horaire local du navigateur.
+- Schéma alternatif configurable : `janToDec`.
+
+## Validation des réponses
+
+Normalisation robuste :
+
+- insensible à la casse,
+- ignore accents,
+- ignore ponctuation,
+- `trim` + espaces multiples réduits.
+
+## Fichiers
+
+- `index.html`
+- `styles.css`
+- `app.js`
+
+## Lancer en local
+
+```bash
+python -m http.server 4173
+```
+
+Puis ouvrir `http://localhost:4173`.
+
+## Déploiement (Option A) — GitHub Pages
+
+1. Pousser ce dossier dans un repo GitHub.
+2. Ouvrir **Settings → Pages**.
 3. Source : **Deploy from a branch**.
-4. Branche : `main` (ou votre branche), dossier `/ (root)`.
-5. Sauvegardez et récupérez l’URL publique.
-
-### B) Cloudflare Pages
-
-1. Cloudflare Dashboard → **Pages** → **Create a project**.
-2. Connectez le repo GitHub.
-3. Build settings :
-   - Framework preset : **None**
-   - Build command : *(vide)*
-   - Output directory : `/`
-4. Déployez, puis utilisez l’URL `*.pages.dev`.
+4. Branche : `main` (ou autre) + dossier `/ (root)`.
+5. Sauvegarder.
+6. Récupérer l’URL fournie par GitHub Pages.
