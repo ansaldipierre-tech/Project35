@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>12 Cadeaux – 35 ans</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="passcodeGate" class="gate-wrap">
+      <div class="gate-card">
+        <p class="kicker">Un message rien que pour toi 💌</p>
+        <h1>Mot de passe</h1>
+        <p class="gate-text">Entre notre code secret pour découvrir les box mensuelles.</p>
+        <form id="passcodeForm" class="stack">
+          <label for="passcodeInput">Code d’accès</label>
+          <input id="passcodeInput" type="password" required autocomplete="current-password" />
+          <p id="passcodeError" class="error-text"></p>
+          <div class="row">
+            <button type="submit" class="btn btn-primary">Entrer</button>
+            <button id="adminFromGateBtn" type="button" class="btn btn-soft">Admin</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div id="app" class="app hidden">
+      <header class="hero container">
+        <p class="kicker">Surprise mensuelle</p>
+        <h1 id="siteTitle">L'année du Love</h1>
+        <p id="siteEdition" class="edition">Édition spéciale 2026</p>
+        <p id="siteIntro" class="intro"></p>
+        <p id="dailyPhrase" class="daily-phrase"></p>
+
+        <div class="hero-meta">
+          <p id="progressText" class="progress">0/12 ouverts</p>
+          <div class="hero-actions">
+            <button id="adminBtn" class="btn btn-soft" type="button">Mode admin</button>
+            <button id="demoToggleBtn" class="btn btn-soft" type="button">Mode test</button>
+          </div>
+        </div>
+
+        <div id="demoPanel" class="demo-panel hidden">
+          <label for="demoDateInput">Date simulée</label>
+          <input id="demoDateInput" type="date" />
+          <button id="resetDemoBtn" class="btn btn-soft" type="button">Revenir au réel</button>
+        </div>
+      </header>
+
+      <main class="container stack-lg">
+        <section>
+          <h2>Les Mois</h2>
+          <div id="monthsGrid" class="months-grid"></div>
+        </section>
+
+        <section>
+          <h2>Les Bons Moments</h2>
+          <p class="section-sub">Des petits coupons utilisables quand tu veux ✨</p>
+          <div id="momentsGrid" class="moments-grid"></div>
+        </section>
+      </main>
+    </div>
+
+    <dialog id="monthModal" class="modal">
+      <div class="modal-card">
+        <button id="closeMonthModal" class="icon-btn" aria-label="Fermer">✕</button>
+        <div id="monthModalBody"></div>
+      </div>
+    </dialog>
+
+    <dialog id="adminModal" class="modal">
+      <div class="modal-card admin-card">
+        <button id="closeAdminModal" class="icon-btn" aria-label="Fermer">✕</button>
+        <h2>Atelier admin</h2>
+
+        <form id="adminAuthForm" class="stack">
+          <label for="adminPassInput">Mot de passe admin</label>
+          <input id="adminPassInput" type="password" required />
+          <p id="adminPassError" class="error-text"></p>
+          <button type="submit" class="btn btn-primary">Déverrouiller</button>
+        </form>
+
+        <section id="adminPanel" class="hidden stack-lg">
+          <div class="row wrap">
+            <button id="exportBtn" type="button" class="btn btn-soft">Exporter JSON</button>
+            <label for="importInput" class="btn btn-soft fake-file">Importer JSON</label>
+            <input id="importInput" type="file" accept="application/json" />
+            <button id="resetOpenedBtn" type="button" class="btn btn-danger">Reset mois ouverts</button>
+            <button id="resetMomentsBtn" type="button" class="btn btn-danger">Reset bons utilisés</button>
+          </div>
+
+          <details open>
+            <summary>Paramètres globaux</summary>
+            <form id="adminMetaForm" class="stack">
+              <label>Titre du site <input name="siteTitle" required /></label>
+              <label>Édition <input name="siteEdition" required /></label>
+              <label>Introduction <textarea name="siteIntro" required></textarea></label>
+              <label>Schéma des mois
+                <select name="monthScheme">
+                  <option value="marchToFeb">Mars → Février</option>
+                  <option value="janToDec">Janvier → Décembre</option>
+                </select>
+              </label>
+              <label>Message réponse fausse <input name="wrongAnswerMessage" required /></label>
+              <label>Phrases du jour (une par ligne) <textarea name="dailyPhrases"></textarea></label>
+              <label>Passcode app <input name="startPasscode" required /></label>
+              <label>Passcode admin <input name="adminPasscode" required /></label>
+              <button type="submit" class="btn btn-primary">Sauvegarder global</button>
+              <p id="adminMetaMsg" class="ok-text"></p>
+            </form>
+          </details>
+
+          <details open>
+            <summary>Mois (12)</summary>
+            <div class="stack">
+              <label for="adminMonthSelect">Choisir un mois</label>
+              <select id="adminMonthSelect"></select>
+            </div>
+            <form id="adminMonthForm" class="stack">
+              <label>Nom du mois <input name="monthNameFr" required /></label>
+              <label>Énigme <textarea name="clueText" required></textarea></label>
+              <label>Indice (optionnel) <textarea name="hintText"></textarea></label>
+              <label>Indices supplémentaires (une par ligne) <textarea name="extraHints"></textarea></label>
+              <label>Réponses acceptées (une par ligne) <textarea name="acceptedAnswers" required></textarea></label>
+              <label>Titre révélation <input name="revealTitle" required /></label>
+              <label>Message révélation <textarea name="revealMessage" required></textarea></label>
+              <label>Détails cadeau <textarea name="giftDetails"></textarea></label>
+              <label>Image URL <input name="imageUrl" /></label>
+              <button type="submit" class="btn btn-primary">Sauvegarder ce mois</button>
+              <p id="adminMonthMsg" class="ok-text"></p>
+            </form>
+          </details>
+
+          <details open>
+            <summary>Bons Moments</summary>
+            <form id="adminMomentsForm" class="stack">
+              <label>Liste coupons (JSON)
+                <textarea name="momentsJson" required></textarea>
+              </label>
+              <button type="submit" class="btn btn-primary">Sauvegarder coupons</button>
+              <p id="adminMomentsMsg" class="ok-text"></p>
+            </form>
+          </details>
+        </section>
+      </div>
+    </dialog>
+
+    <script src="app.js"></script>
+  </body>
+</html>
