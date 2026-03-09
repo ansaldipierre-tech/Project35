@@ -46,6 +46,23 @@ Expérience statique premium/cozy chic : cartes mensuelles, box à ouvrir avec �
 }
 ```
 
+
+## Template mois prêt à remplir (où configurer rapidement)
+
+Tu peux configurer les 12 mois à deux endroits :
+
+1. **Dans le code** : `app.js` → `defaultConfig.months`
+2. **Dans l’app** : **Mode admin → Mois (12)**
+
+Le template est déjà prérempli avec des placeholders :
+
+- `INSIDE_JOKE_01..12`
+- `SOUVENIR_01..12`
+- `EXTRA_INDICE_XX_A/B`
+- `DETAIL_CADEAU_XX`
+
+Astuce : pour repartir des valeurs du code si tu as déjà modifié via admin, supprime la clé `cadeaux35.config.v2` dans le `localStorage` puis recharge la page.
+
 ## Fonctionnalités
 
 - Écran passcode obligatoire avant affichage.

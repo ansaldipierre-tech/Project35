@@ -36,10 +36,10 @@ const defaultConfig = {
 "Tu me fais vibrer en permanence"
 "J'aime dormir collé à toi"
 "Alors, la journée se passe bien?"
-"Je suis heureux avec toi chaque jour"
+"Je suis heureux avec toi chaque jour",
     ],
   },
- months: [
+  months: [
   {
     monthId: 1,
     monthNameFr: "Mars",
@@ -258,7 +258,8 @@ function init() {
 function bindEvents() {
   el.passcodeForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    if (el.passcodeInput.value === state.config.passcodes.start) {
+    const startPass = state.config.passcodes?.start || defaultConfig.passcodes.start;
+    if (el.passcodeInput.value === startPass) {
       state.unlocked = true;
       el.passcodeGate.classList.add("hidden");
       el.app.classList.remove("hidden");
@@ -276,7 +277,8 @@ function bindEvents() {
 
   el.adminAuthForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    if (el.adminPassInput.value !== state.config.passcodes.admin) {
+    const adminPass = state.config.passcodes?.admin || defaultConfig.passcodes.admin;
+    if (el.adminPassInput.value !== adminPass) {
       el.adminPassError.textContent = "Mot de passe admin incorrect.";
       return;
     }
@@ -595,14 +597,48 @@ function loadConfig() {
 }
 
 function upgradeConfig(cfg) {
-  const out = structuredClone(cfg);
-  if (!Array.isArray(out.meta.dailyPhrases)) out.meta.dailyPhrases = [...defaultConfig.meta.dailyPhrases];
-  out.months = out.months.map((m, i) => ({ ...defaultConfig.months[i], ...m, extraHints: Array.isArray(m.extraHints) ? m.extraHints : [] }));
+  const out = structuredClone(cfg || {});
+
+  if (!out.meta || typeof out.meta !== "object") out.meta = {};
+  if (!out.passcodes || typeof out.passcodes !== "object") out.passcodes = {};
+  if (!Array.isArray(out.moments)) out.moments = structuredClone(defaultConfig.moments);
+  if (!Array.isArray(out.months)) out.months = structuredClone(defaultConfig.months);
+
+  if (typeof out.passcodes.start !== "string" || !out.passcodes.start.trim()) {
+    out.passcodes.start = defaultConfig.passcodes.start;
+  }
+  if (typeof out.passcodes.admin !== "string" || !out.passcodes.admin.trim()) {
+    out.passcodes.admin = defaultConfig.passcodes.admin;
+  }
+
+  if (!Array.isArray(out.meta.dailyPhrases) || !out.meta.dailyPhrases.length) {
+    out.meta.dailyPhrases = [...defaultConfig.meta.dailyPhrases];
+  }
+
+  out.months = out.months.slice(0, 12).map((m, i) => ({
+    ...defaultConfig.months[i],
+    ...m,
+    extraHints: Array.isArray(m?.extraHints) ? m.extraHints : [],
+  }));
+
+  if (out.months.length < 12) {
+    out.months = [...out.months, ...structuredClone(defaultConfig.months.slice(out.months.length))];
+  }
+
   return out;
 }
 
 function validateConfig(cfg) {
-  return cfg && cfg.meta && cfg.passcodes && Array.isArray(cfg.months) && cfg.months.length === 12 && Array.isArray(cfg.moments);
+  return Boolean(
+    cfg
+    && cfg.meta
+    && cfg.passcodes
+    && typeof cfg.passcodes.start === "string"
+    && typeof cfg.passcodes.admin === "string"
+    && Array.isArray(cfg.months)
+    && cfg.months.length === 12
+    && Array.isArray(cfg.moments)
+  );
 }
 
 function loadJson(key, fallback) {
