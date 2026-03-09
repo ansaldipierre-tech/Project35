@@ -18,24 +18,10 @@ const defaultConfig = {
     monthScheme: "marchToFeb", // or janToDec
     wrongAnswerMessage: "Presque... mais ce n’est pas du tout ça 😘",
     dailyPhrases: [
-      "Rappel du jour : t’es ma préférée !!"
-"Un sourire en pensant à Jentivilarus"
-"Juste pour info, j'ai besoin d'un câlin"
-"Je t’aime plus que les jeux de société (et c’est énorme)"
-"Une journée sans rire est une journée perdue"
-"Le plaisir que j'éprouve à tes côtés est sans limite"
-"J'aime te regarder te doucher (c'est creep ou pas?)"
-"Quid de chanter ensemble ?"
-"La vie est belle"
-"Ton sourire illumine ma vie"
-"J'aime ton corps"
-"Trop hâte d'un gros câlin"
-"Qu'est ce qu'on se cuisine ce soir?"
-"On s'embrasse les yeux fermés ou les yeux ouverts?"
-"Tu me fais vibrer en permanence"
-"J'aime dormir collé à toi"
-"Alors, la journée se passe bien?"
-"Je suis heureux avec toi chaque jour",
+      "Rappel du jour : t’es ma préférée !!","Un sourire en pensant à Jentivilarus","Juste pour info, j'ai besoin d'un câlin","Je t’aime plus que les jeux de société, et c’est énorme", 
+      "Une journée sans rire est une journée perdue", "Le plaisir que j'éprouve à tes côtés est sans limite", "J'aime te regarder te doucher, c'est creep ou pas?", "Quid de chanter ensemble ?",
+      "La vie est belle", "Ton sourire illumine ma vie", "J'aime ton corps", "Trop hâte d'un gros câlin", "Qu'est ce qu'on se cuisine ce soir?", "On s'embrasse les yeux fermés ou les yeux ouverts?",
+      "Tu me fais vibrer en permanence", "J'aime dormir collé à toi", "Alors, la journée se passe bien?", "Je suis heureux avec toi chaque jour",
     ],
   },
   months: [
