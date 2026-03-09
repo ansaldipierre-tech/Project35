@@ -14,7 +14,7 @@ const defaultConfig = {
   meta: {
     siteTitle: "L'année du Love",
     siteEdition: "Édition spéciale 2026",
-    siteIntro: "Mon tendre amour, \n\nCette année, l'anniversaire n'est qu'un seul jour, mais à travers lui, ce que l'on célèbre c'est une année entière joyeuse et riche qui nous attend. Pour t'accompagner toute l'année de tes 35 ans (techniquement ta 36em année mais bon restons jeunes), chaque 1er du mois t’offre un petit clin d’œil. Chaque cadeau ne sera en revanche débloqué que lorsque tu auras trouvé la réponse grâce à des indices, qui seront disponibles progressivement.\n\nEn espérant que la sélection te plaise
+    siteIntro: "Mon tendre amour, Cette année, l'anniversaire n'est qu'un seul jour, mais à travers lui, ce que l'on célèbre c'est une année entière joyeuse et riche qui nous attend. Pour t'accompagner toute l'année de tes 35 ans (techniquement ta 36em année mais bon restons jeunes), chaque 1er du mois t’offre un petit clin d’œil. Chaque cadeau ne sera en revanche débloqué que lorsque tu auras trouvé la réponse grâce à des indices, qui seront disponibles progressivement.En espérant que la sélection te plaise
 ",
     monthScheme: "marchToFeb", // or janToDec
     wrongAnswerMessage: "Presque... mais ce n’est pas du tout ça 😘",
