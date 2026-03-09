@@ -185,11 +185,11 @@ const defaultConfig = {
     extraHints: ["La servante te protège un tour", "Le baron compare sa carte"]
   }
 ],
-
+,
   moments: [
     { id: "moment_01", title: "Bon pour un brunch en pyjama", description: "Valable un dimanche au choix." },
-    { id: "moment_02", title: "Bon pour un massage 20 min", description: "Avec huile et musique douce." },
-    { id: "moment_03", title: "Bon pour choisir le film", description: "Même si c’est sur Arte." },
+    { id: "moment_02", title: "Bon pour un massage 30 min", description: "Avec huile et playlist bossa nova." },
+    { id: "moment_03", title: "Bon pour choisir le film", description: "Même si c’est sur Arte..." },
   ],
 };
 
