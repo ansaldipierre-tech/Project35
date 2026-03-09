@@ -8,39 +8,188 @@ const STORAGE = {
 
 const defaultConfig = {
   passcodes: {
-    start: "amour35",
+    start: "bibdu13",
     admin: "amour35",
   },
   meta: {
     siteTitle: "L'année du Love",
     siteEdition: "Édition spéciale 2026",
-    siteIntro: "Douze box, douze moments pour sourire, se souvenir, et t’aimer encore plus fort.",
+    siteIntro: "Mon tendre amour, \n\nCette année, l'anniversaire n'est qu'un seul jour, mais à travers lui, ce que l'on célèbre c'est une année entière joyeuse et riche qui nous attend. Pour t'accompagner toute l'année de tes 35 ans (techniquement ta 36em année mais bon restons jeunes), chaque 1er du mois t’offre un petit clin d’œil. Chaque cadeau ne sera en revanche débloqué que lorsque tu auras trouvé la réponse grâce à des indices, qui seront disponibles progressivement.\n\nEn espérant que la sélection te plaise
+",
     monthScheme: "marchToFeb", // or janToDec
-    wrongAnswerMessage: "Presque... mais ce n’est pas encore notre private joke 😘",
+    wrongAnswerMessage: "Presque... mais ce n’est pas du tout ça 😘",
     dailyPhrases: [
-      "Rappel du jour : tu es mon endroit préféré.",
-      "Mini mission : sourire en pensant à nous deux.",
-      "Phrase du jour : je t’aime un peu beaucoup passionnément.",
+      "Rappel du jour : t’es ma préférée !!"
+"Un sourire en pensant à Jentivilarus"
+"Juste pour info, j'ai besoin d'un câlin"
+"Je t’aime plus que les jeux de société (et c’est énorme)"
+"Une journée sans rire est une journée perdue"
+"Le plaisir que j'éprouve à tes côtés est sans limite"
+"J'aime te regarder te doucher (c'est creep ou pas?)"
+"Quid de chanter ensemble ?"
+"La vie est belle"
+"Ton sourire illumine ma vie"
+"J'aime ton corps"
+"Trop hâte d'un gros câlin"
+"Qu'est ce qu'on se cuisine ce soir?"
+"On s'embrasse les yeux fermés ou les yeux ouverts?"
+"Tu me fais vibrer en permanence"
+"J'aime dormir collé à toi"
+"Alors, la journée se passe bien?"
+"Je suis heureux avec toi chaque jour"
     ],
   },
-  months: [
-    { monthId: 1, monthNameFr: "Mars", clueText: "INSIDE_JOKE_01", hintText: "Indice 01", acceptedAnswers: ["INSIDE_JOKE_01", "inside joke 1"], revealTitle: "Box Mars", revealMessage: "Bravo 💝", giftDetails: "DÉTAIL_01", imageUrl: "", extraHints: [] },
-    { monthId: 2, monthNameFr: "Avril", clueText: "INSIDE_JOKE_02", hintText: "Indice 02", acceptedAnswers: ["INSIDE_JOKE_02", "inside joke 2"], revealTitle: "Box Avril", revealMessage: "Bravo 💝", giftDetails: "DÉTAIL_02", imageUrl: "", extraHints: [] },
-    { monthId: 3, monthNameFr: "Mai", clueText: "INSIDE_JOKE_03", hintText: "Indice 03", acceptedAnswers: ["INSIDE_JOKE_03", "inside joke 3"], revealTitle: "Box Mai", revealMessage: "Bravo 💝", giftDetails: "DÉTAIL_03", imageUrl: "", extraHints: [] },
-    { monthId: 4, monthNameFr: "Juin", clueText: "INSIDE_JOKE_04", hintText: "Indice 04", acceptedAnswers: ["INSIDE_JOKE_04", "inside joke 4"], revealTitle: "Box Juin", revealMessage: "Bravo 💝", giftDetails: "DÉTAIL_04", imageUrl: "", extraHints: [] },
-    { monthId: 5, monthNameFr: "Juillet", clueText: "INSIDE_JOKE_05", hintText: "Indice 05", acceptedAnswers: ["INSIDE_JOKE_05", "inside joke 5"], revealTitle: "Box Juillet", revealMessage: "Bravo 💝", giftDetails: "DÉTAIL_05", imageUrl: "", extraHints: [] },
-    { monthId: 6, monthNameFr: "Août", clueText: "INSIDE_JOKE_06", hintText: "Indice 06", acceptedAnswers: ["INSIDE_JOKE_06", "inside joke 6"], revealTitle: "Box Août", revealMessage: "Bravo 💝", giftDetails: "DÉTAIL_06", imageUrl: "", extraHints: [] },
-    { monthId: 7, monthNameFr: "Septembre", clueText: "INSIDE_JOKE_07", hintText: "Indice 07", acceptedAnswers: ["INSIDE_JOKE_07", "inside joke 7"], revealTitle: "Box Septembre", revealMessage: "Bravo 💝", giftDetails: "DÉTAIL_07", imageUrl: "", extraHints: [] },
-    { monthId: 8, monthNameFr: "Octobre", clueText: "INSIDE_JOKE_08", hintText: "Indice 08", acceptedAnswers: ["INSIDE_JOKE_08", "inside joke 8"], revealTitle: "Box Octobre", revealMessage: "Bravo 💝", giftDetails: "DÉTAIL_08", imageUrl: "", extraHints: [] },
-    { monthId: 9, monthNameFr: "Novembre", clueText: "INSIDE_JOKE_09", hintText: "Indice 09", acceptedAnswers: ["INSIDE_JOKE_09", "inside joke 9"], revealTitle: "Box Novembre", revealMessage: "Bravo 💝", giftDetails: "DÉTAIL_09", imageUrl: "", extraHints: [] },
-    { monthId: 10, monthNameFr: "Décembre", clueText: "INSIDE_JOKE_10", hintText: "Indice 10", acceptedAnswers: ["INSIDE_JOKE_10", "inside joke 10"], revealTitle: "Box Décembre", revealMessage: "Bravo 💝", giftDetails: "DÉTAIL_10", imageUrl: "", extraHints: [] },
-    { monthId: 11, monthNameFr: "Janvier", clueText: "INSIDE_JOKE_11", hintText: "Indice 11", acceptedAnswers: ["INSIDE_JOKE_11", "inside joke 11"], revealTitle: "Box Janvier", revealMessage: "Bravo 💝", giftDetails: "DÉTAIL_11", imageUrl: "", extraHints: [] },
-    { monthId: 12, monthNameFr: "Février", clueText: "INSIDE_JOKE_12", hintText: "Indice 12", acceptedAnswers: ["INSIDE_JOKE_12", "inside joke 12"], revealTitle: "Box Février", revealMessage: "Bravo 💝", giftDetails: "DÉTAIL_12", imageUrl: "", extraHints: [] },
-  ],
+ months: [
+  {
+    monthId: 1,
+    monthNameFr: "Mars",
+    clueText: "On va dé-guster",
+    hintText: "Ce n’est pas un dé pour jouer",
+    acceptedAnswers: ["restaurant", "un restaurant", "dîner", "diner", "un diner", "dîner au restaurant", "soirée resto", "soiree resto", "la mercerie", "La Mercerie", "La mercerie", "mercerie", "Mercerie"],
+    revealTitle: "Box Mars -  La Mercerie❤️",
+    revealMessage: "Bravo mon amour 💝 Tu viens de débloquer une soirée où tu n’as rien à décider… sauf le dessert.",
+    giftDetails: "🎁 Cadeau : Une soirée à la Mercerie, 5 services et accord Mets & Vins.",
+    imageUrl: "",
+    extraHints: ["Non loin du Bao", "Soirée à deux", "Bon là il faut quand même trouver"]
+  },
+  {
+    monthId: 2,
+    monthNameFr: "Avril",
+    clueText: "Énigme : Je suis petit, joli, parfois secret, et peu de gens me voient. ",
+    hintText: "Indice : Je suis suffisamment léger pour être porté, mais ne peut pas être porté seul",
+    acceptedAnswers: ["lingerie", "de la lingerie", "ensemble", "un ensemble", "un ensemble lingerie", "dessous", "des dessous", "sous-vêtements", "sous vetements"],
+    revealTitle: "Box Avril – Des dessous pour me grimper dessus✨",
+    revealMessage: "Bien joué 😏 J’espère que ca te plaira, même si je suis sur que tu seras irrésistible.",
+    giftDetails: "🎁 Cadeau : de la lingerie, oui c’est un cadeau également pour moi.",
+    imageUrl: "",
+    extraHints: ["Peut jouer en ensemble", "Préfère un traitement main plutôt que machine", "Sans dessus dessous"]
+  },
+  {
+    monthId: 3,
+    monthNameFr: "Mai",
+    clueText: "Énigme : Je ne parle pas, mais je raconte beaucoup. ",
+    hintText: "Indice : Les filles m’aiment bien",
+    acceptedAnswers: ["livre", "un livre", "roman", "un roman", "bouquin", "un bouquin"],
+    revealTitle: "Box Mai – une maison au bord du lac📖",
+    revealMessage: "Bravo 💝 Tu viens de débloquer un petit voyage… sans valise.",
+    giftDetails: "🎁 Cadeau : Deux romans graphiques qui aident à prioriser",
+    imageUrl: "",
+    extraHints: ["Pas sur que tu en aies vraiment besoin", "Tu es sûre ?", "Allez cherche un peu non ?", "Bon ok, dans ce cas, je peux te dire qu’Alexandrie est mon traumatisme enfoui", "Euh, j’ai des pages et je m’achète en librairie ?"]
+  },
+  {
+    monthId: 4,
+    monthNameFr: "Juin",
+    clueText: "Énigme : Je suis une pause où on ne répond à personne.",
+    hintText: "[Durée courte] + [Nadège et Domi par rapport à toi]",
+    acceptedAnswers: ["massage", "un massage", "massage relaxant", "spa", "un spa", "soin", "un soin"],
+    revealTitle: "Box Juin - Détente absolue 🫶",
+    revealMessage: "Yes 💝 Tu as gagné le droit officiel de ne rien faire (et de te laisser chouchouter).",
+    giftDetails: "🎁 Cadeau : un massage dans le plus grand des calmes",
+    imageUrl: "",
+    extraHints: ["Mieux vaut s’allonger", "On en ressort gras mais tendre"]
+  },
+  {
+    monthId: 5,
+    monthNameFr: "Juillet",
+    clueText: "Énigme : Je suis grande, et douce, et j’ai l’honneur de toucher ta peau",
+    hintText: "Indice : 🏖️",
+    acceptedAnswers: ["serviette", "serviette de plage", "une serviette", "une serviette de plage", "drap de plage", "towel", "serviette plage"],
+    revealTitle: "Box Juillet - Soleil & style ☀️",
+    revealMessage: "Bravo 💝 Tu as débloqué l’accessoire officiel des prophètes.",
+    giftDetails: "🎁 Cadeau : une serviette de plage de qualité.",
+    imageUrl: "",
+    extraHints: ["L’été sera chaud", "Seul sur le sable, les pieds dans l’eau", "Pas aussi cool qu’un Poncho"]
+  },
+  {
+    monthId: 6,
+    monthNameFr: "Août",
+    clueText: "Énigme : J’accède difficilement aux denrées",
+    hintText: "Indice : Voulzy",
+    acceptedAnswers: ["île", "une île", "ile", "une ile", "voyage", "un voyage", "escapade", "une escapade", "île surprise", "ile surprise"],
+    revealTitle: "Box Août - Échappée insulaire 🏝️",
+    revealMessage: "Bingo 💝 on part en echapée insulaire",
+    giftDetails: "🎁 Cadeau : un voyage sur une île.",
+    imageUrl: "",
+    extraHints: ["J’ai trop hâte", "Heureusement qu’on a des babysitter"]
+  },
+  {
+    monthId: 7,
+    monthNameFr: "Septembre",
+    clueText: "Énigme : Nous l’avons accueillie dans notre village Cozy Sticker, ",
+    hintText: "Indice : Eternel ou éphémère",
+    acceptedAnswers: ["peinture", "la peinture", "atelier peinture", "un atelier peinture", "peindre", "peindre ensemble", "peindre", "peinture acrylique", "peinture aquarelle"],
+    revealTitle: "Box Septembre - Couleurs & Contours🎨",
+    revealMessage: "Bravo 💝 Tu as débloqué une activité peinture sans les filles.",
+    giftDetails: "🎁 Cadeau : LA PEINTURE",
+    imageUrl: "",
+    extraHints: ["C’est beau mais salissant", "à l’eau ? Non à l’huile"]
+  },
+  {
+    monthId: 8,
+    monthNameFr: "Octobre",
+    clueText: "Énigme : Il n’est de plus beau voyage que ceux que l’on imagine dans sa tête",
+    hintText: "Je ne crois pas à cette phrase mais c’est plus économique",
+    acceptedAnswers: ["livre", "un livre", "roman", "un roman", "bouquin", "un bouquin", "lecture"],
+    revealTitle: "Box Octobre – Un mois parfait pour lire",
+    revealMessage: "Bien joué 💝 Tu débloques une nouvelle aventure qui j’espère te plaira (promis c’est pas KM0).",
+    giftDetails: "🎁 Cadeau : un livre très dur, très fort, sur un tas de sujets très importants",
+    imageUrl: "",
+    extraHints: []
+  },
+  {
+    monthId: 9,
+    monthNameFr: "Novembre",
+    clueText: "Énigme : Benjamin dans 99F",
+    hintText: "Indice : Cozy sticker ville, sans la ville et sans les stickers",
+    acceptedAnswers: ["pyjama", "un pyjama", "pijama", "un pijama", "tenue cocooning", "cocooning", "pyj"],
+    revealTitle: "Box Novembre – Pyjama de star 🧸",
+    revealMessage: "Bravo 💝 Tu as gagné le droit d’être dans un confort suprême et malgré tout bonnasse.",
+    giftDetails: "🎁 Cadeau : un pyjama (très doux) qui peut s’enlever en cas de besoin",
+    imageUrl: "",
+    extraHints: ["Mon premier est une lettre grecques aux décimales infinies", "Mon deuxième est oui en allemand", "Mon troisième est le début de ton prénom" ]
+  },
+  {
+    monthId: 10,
+    monthNameFr: "Décembre",
+    clueText: "Énigme : Je suis un cadeau qui fait plaisir",
+    hintText: "Seul ou à deux 😇",
+    acceptedAnswers: ["sextoy", "sex toy", "sex-toy", "jouet", "jouet intime", "accessoire", "accessoire intime", "jouet pour adulte"],
+    revealTitle: "Box Décembre — Complicité +++ 😏",
+    revealMessage: "Bien joué 💝 Tu débloques un cadeau qui dit donne le sourire.",
+    giftDetails: "🎁 Cadeau : un sextoy",
+    imageUrl: "",
+    extraHints: ["S’utilise sous la couette", "A ne pas mettre entre toutes les mains"]
+  },
+  {
+    monthId: 11,
+    monthNameFr: "Janvier",
+    clueText: "Énigme : Je protège tes idées.",
+    hintText: "Indice : Sublime et saisonnier.",
+    acceptedAnswers: ["bonnet", "un bonnet", "bonnet de neige", "bonnet d'hiver", "bonnet hiver", "chapka"],
+    revealTitle: "Box Janvier - Team hiver ❄️",
+    revealMessage: "Bravo 💝 Tu débloques l’accessoire « chaude et stylée ».",
+    giftDetails: "🎁 Cadeau : un bonnet de neige, pour rester caliente et sexy rafinée même à 0 degrés",
+    imageUrl: "",
+    extraHints: ["Epithète", "Moche menton", "Existe aussi en soutien-gorge"]
+  },
+  {
+    monthId: 12,
+    monthNameFr: "Février",
+    clueText: "Énigme : Je suis la dernière page d’un joli chapitre… et le début du prochain. Je ne m’achète pas en magasin, mais me trouve dans un écrin",
+    hintText: "Indice : La princesse meurt si elle est défaussée",
+    acceptedAnswers: ["surprise", "une surprise", "journée", "une journée", "week-end", "week end", "lettre", "une lettre", "amour", "notre amour"],
+    revealTitle: "Box Février - Le final 💌",
+    revealMessage: "Bravo mon amour 💝 Tu as terminé les 12 box… mais pas l’aventure.",
+    giftDetails: "🎁 Cadeau : une lettre d’amour",
+    imageUrl: "",
+    extraHints: ["La servante te protège un tour", "Le baron compare sa carte"]
+  }
+],
+,
   moments: [
     { id: "moment_01", title: "Bon pour un brunch en pyjama", description: "Valable un dimanche au choix." },
-    { id: "moment_02", title: "Bon pour un massage 20 min", description: "Avec playlist douce incluse." },
-    { id: "moment_03", title: "Bon pour choisir le film", description: "Même si c’est une romcom de Noël." },
+    { id: "moment_02", title: "Bon pour un massage 30 min", description: "Avec huile et playlist bossa nova." },
+    { id: "moment_03", title: "Bon pour choisir le film", description: "Même si c’est sur Arte..." },
   ],
 };
 
