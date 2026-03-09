@@ -8,19 +8,35 @@ const STORAGE = {
 
 const defaultConfig = {
   passcodes: {
-    start: "amour35",
+    start: "bibdu13",
     admin: "amour35",
   },
   meta: {
     siteTitle: "L'année du Love",
     siteEdition: "Édition spéciale 2026",
-    siteIntro: "Douze box, douze moments pour sourire, se souvenir, et t’aimer encore plus fort.",
+    siteIntro: "Mon tendre amour, \n\nCette année, l'anniversaire n'est qu'un seul jour, mais à travers lui, ce que l'on célèbre c'est une année entière joyeuse et riche qui nous attend. Pour t'accompagner toute l'année de tes 35 ans (techniquement ta 36em année mais bon restons jeunes), chaque 1er du mois t’offre un petit clin d’œil. Chaque cadeau ne sera en revanche débloqué que lorsque tu auras trouvé la réponse grâce à des indices, qui seront disponibles progressivement.\n\nEn espérant que la sélection te plaise
+",
     monthScheme: "marchToFeb", // or janToDec
-    wrongAnswerMessage: "Presque... mais ce n’est pas encore notre private joke 😘",
+    wrongAnswerMessage: "Presque... mais ce n’est pas du tout ça 😘",
     dailyPhrases: [
-      "Rappel du jour : tu es mon endroit préféré.",
-      "Mini mission : sourire en pensant à nous deux.",
-      "Phrase du jour : je t’aime un peu beaucoup passionnément.",
+      "Rappel du jour : t’es ma préférée !!"
+"Un sourire en pensant à Jentivilarus"
+"Juste pour info, j'ai besoin d'un câlin"
+"Je t’aime plus que les jeux de société (et c’est énorme)"
+"Une journée sans rire est une journée perdue"
+"Le plaisir que j'éprouve à tes côtés est sans limite"
+"J'aime te regarder te doucher (c'est creep ou pas?)"
+"Quid de chanter ensemble ?"
+"La vie est belle"
+"Ton sourire illumine ma vie"
+"J'aime ton corps"
+"Trop hâte d'un gros câlin"
+"Qu'est ce qu'on se cuisine ce soir?"
+"On s'embrasse les yeux fermés ou les yeux ouverts?"
+"Tu me fais vibrer en permanence"
+"J'aime dormir collé à toi"
+"Alors, la journée se passe bien?"
+"Je suis heureux avec toi chaque jour",
     ],
   },
   months: [
